@@ -6,6 +6,8 @@ This application is built as a web app, but it is *not meant to be deployed on a
 
 ![Upload Set](https://raw.github.com/seven1m/flickr-upload-set/master/public/set.png)
 
+![Screenshot](https://raw.github.com/seven1m/flickr-upload-set/master/public/screenshot.png)
+
 ## Setup
 
 1. Install ImageMagick. On OS X: `brew install ImageMagick`. On Ubuntu: `sudo apt-get install imagemagick`
