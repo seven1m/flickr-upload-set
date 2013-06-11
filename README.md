@@ -8,6 +8,14 @@ This application is built as a web app, but it is *not meant to be deployed on a
 
 ![Screenshot](https://raw.github.com/seven1m/flickr-upload-set/master/public/screenshot.png)
 
+## How It Works
+
+We look for photos in the selected folder, then make API calls to Flickr to search for photos with the same names.
+
+This only works if don't change your photo titles once uploaded to Flickr, i.e. your photos on Flickr have titles like "img_1234" etc.
+
+To get around the case where you're camera has looped around and started reusing old numbers, we also check the EXIF information to ensure the date is similar.
+
 ## Setup
 
 1. Install ImageMagick. On OS X: `brew install ImageMagick`. On Ubuntu: `sudo apt-get install imagemagick`
