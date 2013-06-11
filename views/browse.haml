@@ -1,0 +1,10 @@
+- unless @browser.any_photos?
+  %p none
+%ul.pics
+  - @browser.photos.each do |photo|
+    %li{class: photo[:flickr] ? 'found' : ''}
+      - if photo[:flickr]
+        %a{target: '_new', href: "http://www.flickr.com/photos/#{photo[:flickr]['owner']}/#{photo[:flickr]['id']}"}
+          %img{src: "/pic?path=#{photo[:path]}", title: photo[:flickr].inspect}
+      - else
+        %img{src: "/pic?path=#{photo[:path]}", title: photo[:name]}

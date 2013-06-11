@@ -1,0 +1,37 @@
+!!! 5
+%title Flickr Upload Set
+:css
+  body { margin: 0; padding: 0; font-family: Helvetica, Arial, sans-serif; background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPoAAAABCAIAAAB42ySwAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3QYLAAQepFYvlwAAAB1pVFh0Q29tbWVudAAAAAAAQ3JlYXRlZCB3aXRoIEdJTVBkLmUHAAAAE0lEQVQoz2N89+4dwygYBSMDAAAvWALM4mRalQAAAABJRU5ErkJggg==) top left repeat-y; }
+  header, nav, section { padding: 25px; }
+  header { background-color: #333; color: #fff; }
+  header h1 { margin: 0; }
+  header h1 img { vertical-align: middle; }
+  nav { float: left; width: 200px; margin-right: 25px; }
+  section { margin-left: 250px; }
+  .user { float: right; }
+  .pics, .directories { list-style: none; margin: 0; padding: 0; }
+  .pics li { display: inline-block; }
+  .pics li.found img { opacity: 0.2 }
+  .pics li.found:hover img { opacity: 1.0 }
+  .pics li img { display: inline-block; height: 75px; width: 75px; background-color: #eee; padding: 3px; }
+
+%header
+  .user
+    %img{src: "http://flickr.com/buddyicons/#{USER_ID}.jpg"}
+  %h1
+    %img{src: 'logo.png'}
+    Flickr Upload Set
+
+%nav
+  .path= @browser.path
+
+  %ul.directories
+    - unless @browser.root?
+      %li
+        %a{href: "?path=#{@browser.parent_directory}"} ..
+    - @browser.directories.each do |directory|
+      %li
+        %a{href: "/?path=#{directory}"}= File.basename(directory)
+
+%section
+  = yield
