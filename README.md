@@ -10,7 +10,7 @@ This application is built as a web app, but it is *not meant to be deployed on a
 
 ## How It Works
 
-We look for photos in the selected folder, then make API calls to Flickr to search for photos with the same names.
+We look for photos in the selected folder, then make API calls to Flickr to search for photos with the same names under your user account.
 
 This only works if don't change your photo titles once uploaded to Flickr, i.e. your photos on Flickr have titles like "img_1234" etc.
 
