@@ -1,4 +1,4 @@
-# Flikr Upload Set
+# Flickr Upload Set
 
 This is a simple Ruby application that lets you browse your computer hard drive for photos that are *not* yet uploaded to your Flickr account.
 
