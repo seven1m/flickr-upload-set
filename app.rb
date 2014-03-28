@@ -1,7 +1,6 @@
-require 'sinatra'
-require 'mini_magick'
-require 'flickr_party'
-require 'exifr'
+require 'bundler'
+Bundler.require
+require 'fileutils'
 
 begin
   require_relative('./config')
@@ -65,9 +64,9 @@ class Browser
     @photos ||= begin
       by_name = photos_by_name.dup
       photos_by_name.keys.each_slice(FLICKR_BATCH_SIZE) do |names|
-        response = @flickr.flickr.photos.search(user_id: USER_ID, text: names.join(' or '), extras: 'date_upload,date_taken,url_s,url_o')['rsp']
-        if results = response['photos']['photo']
-          results.each do |found|
+        response = @flickr.flickr.photos.search(user_id: USER_ID, text: names.join(' or '), extras: 'date_upload,date_taken,url_s,url_o')
+        if results = response['photos']
+          [results].flatten.each do |found|
             name = found['title'].split('.').first.downcase
             date = Time.parse(found['datetaken'])
             if photo = by_name[name]
