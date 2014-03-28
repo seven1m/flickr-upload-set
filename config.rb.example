@@ -1,3 +1,4 @@
 API_KEY = '' # 'abc123abc123abc123abc123abc123ab'
 SECRET = '' # 'abc123abc123abc1'
 USER_ID = '' # '12345678@N00'
+SESSION_SECRET = 'anything can go here - please change'

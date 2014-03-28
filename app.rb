@@ -15,6 +15,7 @@ end
 flickr = FlickrParty.new(API_KEY, SECRET)
 
 enable :sessions
+set :session_secret, SESSION_SECRET
 
 class Browser
   FLICKR_BATCH_SIZE = 10
