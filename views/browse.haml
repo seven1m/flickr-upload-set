@@ -7,4 +7,5 @@
         %a{target: '_new', href: "http://www.flickr.com/photos/#{photo[:flickr]['owner']}/#{photo[:flickr]['id']}"}
           %img{src: "/pic?path=#{photo[:path]}", title: photo[:flickr].inspect}
       - else
-        %img{src: "/pic?path=#{photo[:path]}", title: photo[:name]}
+        %a{href: '#', 'data-path' => photo[:path]}
+          %img{src: "/pic?path=#{photo[:path]}", title: photo[:name]}

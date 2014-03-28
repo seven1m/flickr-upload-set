@@ -112,3 +112,14 @@ get '/pic' do
     image.to_blob
   end
 end
+
+post '/select' do
+  dest = File.join(UPLOAD_FOLDER_PATH, File.split(params[:path]).last)
+  @browser = Browser.new(params[:path], flickr)
+  if File.exist?(dest)
+    haml '%p file already exists in upload folder'
+  else
+    FileUtils.cp(params[:path], dest)
+    haml '%p file copied to upload folder'
+  end
+end
